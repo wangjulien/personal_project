@@ -62,6 +62,7 @@ $RECYCLE.BIN/
 *.msp
 
 # Eclipse project files
+.springBeans
 .classpath
 .project
 .settings
