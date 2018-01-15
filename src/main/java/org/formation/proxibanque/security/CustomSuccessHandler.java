@@ -1,4 +1,4 @@
-package org.formation.proxibanque.service;
+package org.formation.proxibanque.security;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,13 +8,20 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
+	
+	private static final Logger LOGGER =  LoggerFactory.getLogger(CustomSuccessHandler.class);	
+	
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
 	@Override
@@ -23,7 +30,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 		String targetUrl = determineTargetUrl(authentication);
 
 		if (response.isCommitted()) {
-			System.out.println("Can't redirect");
+			LOGGER.info("Can't redirect");
 			return;
 		}
 
@@ -39,45 +46,23 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
 		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 
-		List<String> roles = new ArrayList<String>();
+		List<String> roles = new ArrayList<>();
 
 		for (GrantedAuthority a : authorities) {
 			roles.add(a.getAuthority());
 		}
 
-		if (isDba(roles)) {
-			url = "/db";
-		} else if (isAdmin(roles)) {
-			url = "/admin";
-		} else if (isUser(roles)) {
-			url = "/home";
+		if (roles.contains("ROLE_GERANT")) {
+			url = "/gerant";
+		} else if (roles.contains("ROLE_CONSEILLER")) {
+			url = "/conseiller";
 		} else {
-			url = "/accessDenied";
+			url = "/access_denied";
 		}
 
 		return url;
 	}
 
-	private boolean isUser(List<String> roles) {
-		if (roles.contains("ROLE_USER")) {
-			return true;
-		}
-		return false;
-	}
-
-	private boolean isAdmin(List<String> roles) {
-		if (roles.contains("ROLE_ADMIN")) {
-			return true;
-		}
-		return false;
-	}
-
-	private boolean isDba(List<String> roles) {
-		if (roles.contains("ROLE_DBA")) {
-			return true;
-		}
-		return false;
-	}
 
 	public void setRedirectStrategy(RedirectStrategy redirectStrategy) {
 		this.redirectStrategy = redirectStrategy;

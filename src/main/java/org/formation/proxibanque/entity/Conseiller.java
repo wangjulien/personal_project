@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "conseiller")
 public class Conseiller extends Employee {
 
-	public static final char ROLE_CONSEILLER = 'C';
+	public static final String ROLE_CONSEILLER = "ROLE_CONSEILLER";
 	
 	@ManyToOne
 	private Gerant gerant;
@@ -37,12 +37,12 @@ public class Conseiller extends Employee {
 
 	public Conseiller() {
 		super();
-		super.setRole(ROLE_CONSEILLER);
+		super.addRole(new UserRole(ROLE_CONSEILLER));
 	}
 
 	public Conseiller(String nom, String prenom, String refEmployee, Adresse adresse) {
 		super(nom, prenom, refEmployee, adresse);
-		super.setRole(ROLE_CONSEILLER);
+		super.addRole(new UserRole(ROLE_CONSEILLER));
 	}
 
 	public void addClient(Client c) {

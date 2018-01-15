@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "gerant")
 public class Gerant extends Employee {
 	
-	public static final char ROLE_GERANT = 'G';
+	public static final String ROLE_GERANT = "ROLE_GERANT";
 	
 	@OneToOne
 	private Agence agence;
@@ -32,12 +32,12 @@ public class Gerant extends Employee {
 
 	public Gerant() {
 		super();
-		super.setRole(ROLE_GERANT);
+		super.addRole(new UserRole(ROLE_GERANT));
 	}
 
 	public Gerant(String nom, String prenom, String refEmployee, Adresse adresse) {
 		super(nom, prenom, refEmployee, adresse);
-		super.setRole(ROLE_GERANT);
+		super.addRole(new UserRole(ROLE_GERANT));
 	}
 
 	public Agence getAgence() {

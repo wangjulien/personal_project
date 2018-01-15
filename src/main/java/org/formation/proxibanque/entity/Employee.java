@@ -3,10 +3,10 @@ package org.formation.proxibanque.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,17 +45,16 @@ public abstract class Employee {
 	@Embedded
 	private Adresse adresse;
 
-	@ManyToMany
-	@JoinTable(name = "user_role", 
-             joinColumns = { @JoinColumn(name = "user_id") }, 
-             inverseJoinColumns = { @JoinColumn(name = "role_id") })
-	private Set<Role> roles = new HashSet<Role>();
-	
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "employee_role", joinColumns = { @JoinColumn(name = "employee_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "role_id") })
+	private Set<UserRole> roles = new HashSet<>();
+
 	@Column(unique = true)
 	private String login;
-	
+
 	private String password;
-	
+
 	public Employee() {
 		super();
 		this.adresse = new Adresse();
@@ -70,6 +69,11 @@ public abstract class Employee {
 		this.login = nom;
 		this.password = "test";
 		this.adresse = new Adresse();
+	}
+
+	public void addRole(UserRole role) {
+		role.addUser(this);
+		this.roles.add(role);
 	}
 
 	public Long getId() {
@@ -112,11 +116,11 @@ public abstract class Employee {
 		this.adresse = adresse;
 	}
 
-	public Set<Role> getRoles() {
+	public Set<UserRole> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<Role> roles) {
+	public void setRoles(Set<UserRole> roles) {
 		this.roles = roles;
 	}
 

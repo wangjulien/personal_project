@@ -16,6 +16,5 @@ public interface IDaoConseiller extends JpaRepository<Conseiller, Long> {
 
 
 //	public List<Conseiller> findAllConseillerByGerantId(Long idGerant);
-//
-//	public Employee findEmployeeByLoginAndPassword(String login, String password);
+
 }

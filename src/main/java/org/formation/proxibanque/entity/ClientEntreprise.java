@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @Entity
-@Table(name = "cliententreprise")
+@Table(name = "client_entreprise")
 public class ClientEntreprise extends Client {
 
 	private String noSiret;

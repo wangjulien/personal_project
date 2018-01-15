@@ -1,13 +1,18 @@
 package org.formation.proxibanque.entity;
 
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
-public class Role {
+@Entity
+@Table(name = "userrole")
+public class UserRole {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,11 +21,14 @@ public class Role {
     private String name;
     
     @ManyToMany(mappedBy = "roles")
-    private Set<Employee> employee;
+    private Set<Employee> users = new HashSet<>();
 	
-	public Role() {
+	public UserRole() {
 		super();
-		// TODO Auto-generated constructor stub
+	}
+
+	public UserRole(String role) {
+		this.name = role;
 	}
 
 	public Long getId() {
@@ -39,11 +47,16 @@ public class Role {
 		this.name = name;
 	}
 
-	public Set<Employee> getEmployee() {
-		return employee;
+	public Set<Employee> getUsers() {
+		return users;
 	}
 
-	public void setEmployee(Set<Employee> employee) {
-		this.employee = employee;
+	public void setUsers(Set<Employee> users) {
+		this.users = users;
+	}
+
+	public void addUser(Employee e) {
+		this.users.add(e);
+		
 	}	
 }
