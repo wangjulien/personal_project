@@ -1,23 +1,28 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.springframework.samples.service.service</groupId>
-  <artifactId>proxi_banque_jw_nc</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  
-   <properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.springframework.samples.service.service</groupId>
+	<artifactId>proxi_banque_jw_nc</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<properties>
 		<java.version>1.8</java.version>
+
 		<!-- 4.3.13.RELEASE -->
 		<springframework.version>4.3.13.RELEASE</springframework.version>
-
+		<springsecurity.version>4.2.3.RELEASE</springsecurity.version>
 		<spring.jpa.data.version>1.9.2.RELEASE</spring.jpa.data.version>
 		<hibernate.version>4.2.1.Final</hibernate.version>
-		<logback.version>1.0.13</logback.version>
+		
 		<slf4j.version>1.7.5</slf4j.version>
+		<logback.version>1.0.13</logback.version>
 		<junit.version>4.12</junit.version>
-		<jsp.version>2.2</jsp.version> 
-		<jstl.version>1.2</jstl.version> 
-
+		
+		<jsp.version>2.2</jsp.version>
+		<jstl.version>1.2</jstl.version>
+		
+		<aspectj.version>1.8.13</aspectj.version>
 	</properties>
 
 	<dependencies>
@@ -60,6 +65,23 @@
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.springframework.security</groupId>
+    		<artifactId>spring-security-taglibs</artifactId>
+    		<version>${springsecurity.version}</version>
 		</dependency>
 
 		<!-- Logging with SLF4J & LogBack -->
@@ -130,6 +152,36 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
+		</dependency>
+
+		<!-- Spring AOP + AspectJ -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>2.2.2</version>
+		</dependency>
 
 	</dependencies>
 

@@ -18,16 +18,20 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		 * 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 		 * </listener>
 		 * 
-		 * <servlet> <servlet-name>dispatcherServlet</servlet-name>
-		 * <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> 
+		 * <servlet> 
+		 * 		<servlet-name>dispatcherServlet</servlet-name>
+		 * 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> 
 		 * 		<init-param> 
 		 * 			<param-name>contextConfigLocation</param-name>
 		 * 			<param-value>/WEB-INF/mvc-config.xml</param-value> 
 		 * 		</init-param>
-		 * <load-on-startup>1</load-on-startup> </servlet>
+		 * 		<load-on-startup>1</load-on-startup> 
+		 * </servlet>
 		 * 
-		 * <servlet-mapping> <servlet-name>dispatcherServlet</servlet-name>
-		 * <url-pattern>/</url-pattern> </servlet-mapping>
+		 * <servlet-mapping> 
+		 * 		<servlet-name>dispatcherServlet</servlet-name>
+		 * 		<url-pattern>/</url-pattern> 
+		 * </servlet-mapping>
 		 */
 		
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
