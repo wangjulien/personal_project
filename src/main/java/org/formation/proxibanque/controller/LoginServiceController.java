@@ -17,13 +17,13 @@ public class LoginServiceController {
 
 	
 	@RequestMapping(value = "/conseiller", method = RequestMethod.GET)
-	public String adminPage(ModelMap model) {
+	public String conseillerPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
 		return "conseiller";
 	}
 
 	@RequestMapping(value = "/gerant", method = RequestMethod.GET)
-	public String dbaPage(ModelMap model) {
+	public String gerantPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
 		return "gerant";
 	}

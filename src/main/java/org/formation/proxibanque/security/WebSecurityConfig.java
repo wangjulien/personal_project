@@ -34,8 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
         .antMatchers("/", "/conseiller").access("hasRole('ROLE_CONSEILLER')")
         .antMatchers("/gerant").access("hasRole('ROLE_GERANT')")
-        .and().formLogin().loginPage("/login.jsp").loginProcessingUrl("/login")
-//        .successHandler(customSuccessHandler)
+        .and().formLogin().loginPage("/login").loginProcessingUrl("/login")
+        .successHandler(customSuccessHandler)
         .usernameParameter("login").passwordParameter("password")
         .and().csrf()
         .and().exceptionHandling().accessDeniedPage("/access_denied");
