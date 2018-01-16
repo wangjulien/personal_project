@@ -3,9 +3,10 @@ package org.formation.proxibanque.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.formation.proxibanque.entity.Employee;
+import org.formation.proxibanque.security.CustomUserDetails;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,13 +20,13 @@ public class LoginServiceController {
 	@RequestMapping(value = "/conseiller", method = RequestMethod.GET)
 	public String conseillerPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
-		return "conseiller";
+		return "conseiller/conseiller_welcome";
 	}
 
 	@RequestMapping(value = "/gerant", method = RequestMethod.GET)
 	public String gerantPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
-		return "gerant";
+		return "gerant/gerant_welcome";
 	}
 
 	@RequestMapping(value = "/access_denied", method = RequestMethod.GET)
@@ -48,16 +49,15 @@ public class LoginServiceController {
 		return "redirect:/login?logout";
 	}
 
-	private String getPrincipal() {
-		String userName = null;
+	private Employee getPrincipal() {
+		Employee user = null;
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-		if (principal instanceof UserDetails) {
-			userName = ((UserDetails) principal).getUsername();
-		} else {
-			userName = principal.toString();
+		if (principal instanceof CustomUserDetails) {
+			user = ((CustomUserDetails) principal).getUser();
 		}
-		return userName;
+		
+		return user;
 	}
 
 }

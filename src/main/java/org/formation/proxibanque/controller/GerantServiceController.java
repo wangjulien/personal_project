@@ -1,18 +1,19 @@
 package org.formation.proxibanque.controller;
 
-import java.security.Principal;
+
 import java.util.List;
 
 import org.formation.proxibanque.dao.DaoException;
 import org.formation.proxibanque.entity.Conseiller;
+import org.formation.proxibanque.entity.Employee;
 import org.formation.proxibanque.security.CustomUserDetails;
 import org.formation.proxibanque.service.IGerantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class GerantServiceController {
@@ -20,24 +21,39 @@ public class GerantServiceController {
 	@Autowired
 	private IGerantService gerantService;
 
-	@RequestMapping(value = "/displayConseillers", method = RequestMethod.GET)
-	public String listConseillers(Model model, Principal principal) {
+	@RequestMapping(value = "/gerantGestionConseiller", method = RequestMethod.GET)
+	public String listConseillers(Model model) {
 		try {
 			
-			if (principal instanceof CustomUserDetails ) {
+			Employee user = getPrincipal();
 			
+			if (null != user) {
+
 				List<Conseiller> conseillerList = 
-						gerantService.listerTousClientsDuGerant(((CustomUserDetails)principal).getUser().getId());
+						gerantService.listerTousClientsDuGerant(user.getId());
 				model.addAttribute("conseillerList", conseillerList);
-				return "show_all_conseiller";
+
 			} else {
-				return "redirect:/login";
+				model.addAttribute("error", "Utilisateur non logge, essayez de relogger.");
 			}
-			
-			
+
+			return "/gerant/show_all_conseillers";
+
 		} catch (DaoException e) {
 			model.addAttribute("error", e.getMessage());
-			return "show_all_conseiller";
+			return "/gerant/show_all_conseillers";
 		}
+	}
+	
+	
+	private Employee getPrincipal() {
+		Employee user = null;
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		if (principal instanceof CustomUserDetails) {
+			user = ((CustomUserDetails) principal).getUser();
+		}
+		
+		return user;
 	}
 }

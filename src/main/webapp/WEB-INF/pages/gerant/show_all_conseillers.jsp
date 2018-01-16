@@ -10,11 +10,32 @@
 <title>Gestion de conseiller</title>
 </head>
 <body>
+
 	<div class="container">
 
-		<c:if test="${param.error != null}">
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+			<a class="navbar-brand" href="#"> <img
+				src="<c:url value='/resources/img/proxibank.jpg' />" alt="logo"
+				style="width: 120px;">
+			</a>
+
+			<!-- Links -->
+			<ul class="navbar-nav">
+				<c:url var="loginUrl" value="/login" />
+				<c:url var="logoutUrl" value="/logout" />
+				<c:url var="gestionConseillerUrl" value="/gerantGestionConseiller" />
+				<li class="nav-item"><a class="nav-link" href="${loginUrl}">Login</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="${logoutUrl}">Logout</a>
+				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="${gestionConseillerUrl}">Gestion de conseiller</a></li>
+			</ul>
+		</nav>
+
+		<c:if test="${not empty error}">
 			<div class="alert alert-danger">
-				<p>${param.error}</p>
+				<p>${error}</p>
 			</div>
 		</c:if>
 		<h3>Les conseillers geres par vous :</h3>

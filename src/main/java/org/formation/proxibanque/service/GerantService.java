@@ -12,7 +12,6 @@ import org.formation.proxibanque.entity.ClientEntreprise;
 import org.formation.proxibanque.entity.ClientParticulier;
 import org.formation.proxibanque.entity.CompteCourant;
 import org.formation.proxibanque.entity.Conseiller;
-import org.formation.proxibanque.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -37,9 +36,6 @@ public class GerantService implements IGerantService {
 	@Autowired
 	private IDaoConseiller daoConseiller;
 	
-	@Autowired
-	private IDaoEmployee daoEmployee;
-
 	public GerantService() {
 		super();
 	}

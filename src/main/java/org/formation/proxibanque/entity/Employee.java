@@ -68,7 +68,6 @@ public abstract class Employee {
 		this.adresse = adresse;
 		this.login = nom;
 		this.password = "test";
-		this.adresse = new Adresse();
 	}
 
 	public void addRole(UserRole role) {

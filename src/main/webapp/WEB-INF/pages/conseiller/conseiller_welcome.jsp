@@ -12,7 +12,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-<title>Bienvenu</title>
+<title>Bienvenu ${user.nom} ${user.prenom}</title>
 </head>
 <body>
 
@@ -34,14 +34,14 @@
 				</li>
 			</ul>
 		</nav>
-		<div class="generic-container">
-			<div class="authbar">
-				<span>Dear <strong>${user.nom} ${user.prenom}</strong>, You
-					are not authorized to access this page.
-				</span> <span class="floatRight"><a href="<c:url value="/logout" />">Logout</a></span>
-			</div>
+
+		<div>
+			<h3>Bienvenu ${user.nom} ${user.prenom}</h3>
+			<img class="img-thumbnail"
+				src="<c:url value='/resources/img/weclome.gif' />" />
 		</div>
 
 	</div>
+
 </body>
 </html>

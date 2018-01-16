@@ -1,21 +1,8 @@
 package org.formation.proxibanque.service;
 
-import java.time.LocalDateTime;
-
 import javax.annotation.PostConstruct;
 
-import org.formation.proxibanque.dao.DaoException;
 import org.formation.proxibanque.dao.IDaoAgence;
-import org.formation.proxibanque.dao.IDaoConseiller;
-import org.formation.proxibanque.dao.IDaoEmployee;
-import org.formation.proxibanque.entity.Adresse;
-import org.formation.proxibanque.entity.Agence;
-import org.formation.proxibanque.entity.Client;
-import org.formation.proxibanque.entity.ClientEntreprise;
-import org.formation.proxibanque.entity.ClientParticulier;
-import org.formation.proxibanque.entity.Conseiller;
-import org.formation.proxibanque.entity.Employee;
-import org.formation.proxibanque.entity.Gerant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +18,9 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class LoginService implements ILoginService {
+public class SimulationDataService {
 	
-	private static final Logger LOGGER =  LoggerFactory.getLogger(LoginService.class);
+	private static final Logger LOGGER =  LoggerFactory.getLogger(SimulationDataService.class);
 	
 	@Autowired
     private PasswordEncoder passwordEncoder;
@@ -41,11 +28,8 @@ public class LoginService implements ILoginService {
 	@Autowired
 	private IDaoAgence daoAgence;
 	
-	@Autowired
-    private IDaoEmployee daoEmployee;
-	
 
-	public LoginService() {
+	public SimulationDataService() {
 		super();
 	}
 
@@ -97,22 +81,6 @@ public class LoginService implements ILoginService {
 //		daoAgence.save(leAgence);
 //		
 //		LOGGER.debug("Create simulation data : " + leAgence.toString());
-	}
-
-	/**
-	 * Retourne le premier conseiller de la base de donnee correspondant au login et
-	 * au psw fournis en parametre renvoie null si aucun conseiller ne correspond
-	 * 
-	 * @param login
-	 *            du conseiller
-	 * @param psw
-	 *            du conseiller
-	 * @return Conseiller le conseiller trouve ou null
-	 * @throws DaoException
-	 *             la requete a achouee
-	 */
-	public Employee login(String login, String psw) throws DaoException {
-		return daoEmployee.findEmployeeByLogin(login);
 	}
 
 }

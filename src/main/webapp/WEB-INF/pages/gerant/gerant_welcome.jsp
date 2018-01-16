@@ -12,7 +12,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-<title>Bienvenu</title>
+<title>Bienvenu ${user.nom} ${user.prenom}</title>
 </head>
 <body>
 
@@ -28,20 +28,22 @@
 			<ul class="navbar-nav">
 				<c:url var="loginUrl" value="/login" />
 				<c:url var="logoutUrl" value="/logout" />
+				<c:url var="gestionConseillerUrl" value="/gerantGestionConseiller" />
 				<li class="nav-item"><a class="nav-link" href="${loginUrl}">Login</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="${logoutUrl}">Logout</a>
 				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="${gestionConseillerUrl}">Gestion de conseiller</a></li>
 			</ul>
 		</nav>
-		<div class="generic-container">
-			<div class="authbar">
-				<span>Dear <strong>${user.nom} ${user.prenom}</strong>, You
-					are not authorized to access this page.
-				</span> <span class="floatRight"><a href="<c:url value="/logout" />">Logout</a></span>
-			</div>
-		</div>
 
+		<div id="mainWrapper">
+			<h3>Bienvenu ${user.nom} ${user.prenom}</h3>
+			<img class="img-thumbnail"
+				src="<c:url value='/resources/img/weclome.gif' />" />
+		</div>
 	</div>
+
 </body>
 </html>
