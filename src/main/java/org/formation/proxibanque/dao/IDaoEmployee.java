@@ -13,6 +13,5 @@ import org.springframework.data.repository.query.Param;
  */
 public interface IDaoEmployee extends JpaRepository<Employee, Long> {
 	
-	@Query("select e from Employee e join e.roles r where e.login = (:login)")
 	public Employee findEmployeeByLogin(@Param("login") String login);
 }

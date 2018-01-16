@@ -57,7 +57,9 @@
 						<td>${conseiller.nom}</td>
 						<td>${conseiller.prenom}</td>
 						<td>${conseiller.adresse.toString()}</td>
-						<td><a href="UpdateConseillerServlet?id=${conseiller.id}"
+						
+						<c:url var="editConseillerUrl" value="/gerantEditConseiller" />
+						<td><a href="${editConseillerUrl}?id=${conseiller.id}"
 							class="view-link">Detail</a></td>
 					</tr>
 				</c:forEach>

@@ -12,10 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
+@SessionAttributes("conseiller")
 public class GerantServiceController {
 
 	@Autowired
@@ -42,6 +47,38 @@ public class GerantServiceController {
 		} catch (DaoException e) {
 			model.addAttribute("error", e.getMessage());
 			return "/gerant/show_all_conseillers";
+		}
+	}
+	
+	
+	@RequestMapping(value = "/gerantEditConseiller", method = RequestMethod.GET)
+	public String editConseillers(@RequestParam("id") Long id, Model model) {
+		
+		try {
+			Conseiller conseiller = gerantService.chercherConseiller(id);
+			model.addAttribute("conseiller", conseiller);
+			
+			return "/gerant/edit_conseiller";
+		} catch (DaoException e) {
+			model.addAttribute("error", e.getMessage());
+			return "/gerant/edit_conseiller";
+		}		
+	}
+	
+	
+	@RequestMapping(value = "/gerantEditConseiller", method = RequestMethod.POST)
+	public String updateConseillers(@ModelAttribute("conseiller") Conseiller conseiller, Model model, SessionStatus status) {
+		
+		try {
+			
+			gerantService.modifierConseiller(conseiller);
+			
+			return "redirect:/gerantGestionConseiller";
+		} catch (DaoException e) {
+			model.addAttribute("error", e.getMessage());
+			return "/gerant/edit_conseiller";
+		} finally {
+			status.setComplete(); 
 		}
 	}
 	

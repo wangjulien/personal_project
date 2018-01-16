@@ -9,6 +9,7 @@ import org.formation.proxibanque.entity.CompteCourant;
 import org.formation.proxibanque.entity.Virement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Service realisant des Virements d'un Compte a un autre
@@ -52,6 +53,7 @@ public class VirementService implements IVirementService {
 	}
 	
 	@Override
+	@Transactional
 	public boolean faireVirement(Client debiteur, Compte depart, Client crediteur, Compte cible, double montant)
 			throws DaoException {
 		if (checkMontantSolde(depart, montant)) {
