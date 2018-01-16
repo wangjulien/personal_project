@@ -35,8 +35,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	public void addViewControllers(ViewControllerRegistry registry) {
 		// index mapping
 		// / - > index.jsp
-		registry.addViewController("/").setViewName("index");
-//		registry.addViewController("/login").setViewName("login");
+		registry.addViewController("/").setViewName("login");
+
 	}
 
 	 @Override

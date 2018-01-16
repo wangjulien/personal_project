@@ -58,7 +58,7 @@
 				</tr>
 				<tr>
 					<td>Nom : <br> <input type="text" name="nom"
-						value="${conseiller.getNom()}" />
+						value="${conseiller.getNom()}" required />
 					</td>
 				</tr>
 				<tr>
