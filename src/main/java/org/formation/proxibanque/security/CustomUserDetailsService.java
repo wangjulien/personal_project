@@ -18,11 +18,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
-public class CustomUserService implements UserDetailsService {
+public class CustomUserDetailsService implements UserDetailsService {
 
-	private static final Logger LOGGER =  LoggerFactory.getLogger(CustomUserService.class);
+	private static final Logger LOGGER =  LoggerFactory.getLogger(CustomUserDetailsService.class);
 	
 //	http://www.yiibai.com/spring-security/spring-mvc-4-and-spring-security-4-integration-example.html
 	
@@ -30,33 +31,18 @@ public class CustomUserService implements UserDetailsService {
     private IDaoEmployee daoEmployee;
 	
     @Override
+    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+    	
     	Employee user = daoEmployee.findEmployeeByLogin(login);
-        
+    	
     	LOGGER.info("Utilisateur login ", login);
 		if(user == null){
 			LOGGER.info("L'utilisateur non trouve");
 			throw new UsernameNotFoundException("L'utilisateur non trouve par login " + login);
 		}
-    	
-    	List<GrantedAuthority> authorities = buildUserAuthority(user.getRoles());
-    	
-        return new User(user.getLogin(), user.getPassword(), authorities);
+		
+		user.getRoles().size();
+        return new CustomUserDetails(user);
     }
-    
-    
-    private List<GrantedAuthority> buildUserAuthority(Set<UserRole> userRoles) {
-
-		Set<GrantedAuthority> setAuths = new HashSet<GrantedAuthority>();
-
-		// Build user's authorities
-		for (UserRole userRole : userRoles) {
-			setAuths.add(new SimpleGrantedAuthority(userRole.getName()));
-		}
-
-		List<GrantedAuthority> Result = new ArrayList<GrantedAuthority>(setAuths);
-
-		return Result;
-	}
-
 }

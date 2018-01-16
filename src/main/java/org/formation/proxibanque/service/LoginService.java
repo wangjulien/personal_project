@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import org.formation.proxibanque.dao.DaoException;
 import org.formation.proxibanque.dao.IDaoAgence;
 import org.formation.proxibanque.dao.IDaoConseiller;
+import org.formation.proxibanque.dao.IDaoEmployee;
 import org.formation.proxibanque.entity.Adresse;
 import org.formation.proxibanque.entity.Agence;
 import org.formation.proxibanque.entity.Client;
@@ -18,6 +19,7 @@ import org.formation.proxibanque.entity.Gerant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -34,10 +36,14 @@ public class LoginService implements ILoginService {
 	private static final Logger LOGGER =  LoggerFactory.getLogger(LoginService.class);
 	
 	@Autowired
-	private IDaoConseiller daoConseiller;
+    private PasswordEncoder passwordEncoder;
 
 	@Autowired
 	private IDaoAgence daoAgence;
+	
+	@Autowired
+    private IDaoEmployee daoEmployee;
+	
 
 	public LoginService() {
 		super();
@@ -65,6 +71,9 @@ public class LoginService implements ILoginService {
 //		Client enterprise4 = new ClientEntreprise("SFR", "EJ9179875", "CL009", add);
 //
 //		Conseiller leConseiller = new Conseiller("WANG", "Jiliang", "C001", add);
+//		leConseiller.setLogin("conseiller");
+//		leConseiller.setPassword(passwordEncoder.encode("test"));
+//		
 //		leConseiller.addClient(client01);
 //		leConseiller.addClient(client02);
 //		leConseiller.addClient(client03);
@@ -76,6 +85,10 @@ public class LoginService implements ILoginService {
 //		leConseiller.addClient(enterprise4);
 //
 //		Gerant leGerant = new Gerant("Dupant", "Leo", "CG002", add);
+//		leGerant.setLogin("gerant");
+//		leGerant.setPassword(passwordEncoder.encode("test"));
+//		
+//		
 //		Agence leAgence = new Agence("0001", LocalDateTime.now().toString(), leGerant);
 //
 //		leGerant.addConseiller(leConseiller);
@@ -99,10 +112,7 @@ public class LoginService implements ILoginService {
 	 *             la requete a achouee
 	 */
 	public Employee login(String login, String psw) throws DaoException {
-		// Employee em = daoConseiller.findEmployeeByLoginAndPassword(login, psw);
-		//
-		// return em;
-		return null;
+		return daoEmployee.findEmployeeByLogin(login);
 	}
 
 }

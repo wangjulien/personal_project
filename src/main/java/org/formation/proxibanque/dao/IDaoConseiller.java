@@ -3,7 +3,6 @@ package org.formation.proxibanque.dao;
 import java.util.List;
 
 import org.formation.proxibanque.entity.Conseiller;
-import org.formation.proxibanque.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -15,6 +14,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface IDaoConseiller extends JpaRepository<Conseiller, Long> {
 
 
-//	public List<Conseiller> findAllConseillerByGerantId(Long idGerant);
+	public List<Conseiller> findByGerantId(Long idGerant);
 
 }

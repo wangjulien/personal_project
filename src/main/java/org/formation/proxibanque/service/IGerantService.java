@@ -17,7 +17,7 @@ public interface IGerantService {
 
 	public void supprimerConseiller(Conseiller conseiller) throws DaoException;
 
-	public List<Conseiller> listerTousClientsDuGerant(Long idGerant) throws DaoException;
+	public List<Conseiller> listerTousClientsDuGerant(Long idGerent) throws DaoException;
 
 	public boolean faireAudite(Agence a, List<Client> listDebiteurs);
 }

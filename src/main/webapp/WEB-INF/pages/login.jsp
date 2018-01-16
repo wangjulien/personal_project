@@ -20,8 +20,9 @@
 <body>
 
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<a class="navbar-brand" href="#"> 
-			<img src="<c:url value='/resources/img/proxibank.jpg' />" alt="logo" style="width: 120px;">
+		<a class="navbar-brand" href="#"> <img
+			src="<c:url value='/resources/img/proxibank.jpg' />" alt="logo"
+			style="width: 120px;">
 		</a>
 
 		<!-- Links -->
@@ -39,7 +40,7 @@
 		<div class="login-container">
 			<div class="login-card">
 				<div class="login-form">
-					
+
 					<form action="${loginUrl}" method="post" class="form-horizontal">
 						<c:if test="${param.error != null}">
 							<div class="alert alert-danger">
@@ -52,15 +53,15 @@
 							</div>
 						</c:if>
 						<div class="input-group input-sm">
-							<input type="text" class="form-control"
-								name="login" placeholder="Saisir login" required>
+							<input type="text" class="form-control" name="login"
+								placeholder="Saisir login" required>
 						</div>
 						<div class="input-group input-sm">
-							<input type="password"
-								class="form-control" name="password"
+							<input type="password" class="form-control" name="password"
 								placeholder="Saisir Password" required>
 						</div>
-
+						<input type="hidden" name="${_csrf.parameterName}"
+							value="${_csrf.token}" />
 						<div class="form-actions">
 							<input type="submit"
 								class="btn btn-block btn-primary btn-default" value="Log in">

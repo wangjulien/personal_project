@@ -2,6 +2,7 @@ package org.formation.proxibanque.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,10 +14,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@ComponentScan(basePackageClasses = CustomUserDetailsService.class)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
 	@Autowired
-    UserDetailsService customUserService;
+    UserDetailsService customUserDetailsService;
 	
 	@Autowired
     CustomSuccessHandler customSuccessHandler;
@@ -24,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   
     @Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(customUserService).passwordEncoder(passwordEncoder());
+		auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
 	}
 
 
@@ -34,11 +36,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
         .antMatchers("/", "/conseiller").access("hasRole('ROLE_CONSEILLER')")
         .antMatchers("/gerant").access("hasRole('ROLE_GERANT')")
-        .and().formLogin().loginPage("/login").loginProcessingUrl("/login")
-        .successHandler(customSuccessHandler)
-        .usernameParameter("login").passwordParameter("password")
-        .and().csrf()
-        .and().exceptionHandling().accessDeniedPage("/access_denied");
+        .and()
+        .formLogin()
+        	.loginPage("/login").loginProcessingUrl("/login")
+        	.successHandler(customSuccessHandler)
+        	.usernameParameter("login").passwordParameter("password")
+        	.failureUrl("/login")
+        .and()
+        	.csrf()
+        .and()
+        	.exceptionHandling().accessDeniedPage("/access_denied");
     }
 	
 	@Bean

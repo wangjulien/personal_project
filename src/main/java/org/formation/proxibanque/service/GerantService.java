@@ -1,18 +1,20 @@
 package org.formation.proxibanque.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.formation.proxibanque.config.Config;
 import org.formation.proxibanque.dao.DaoException;
 import org.formation.proxibanque.dao.IDaoConseiller;
+import org.formation.proxibanque.dao.IDaoEmployee;
 import org.formation.proxibanque.entity.Agence;
 import org.formation.proxibanque.entity.Client;
 import org.formation.proxibanque.entity.ClientEntreprise;
 import org.formation.proxibanque.entity.ClientParticulier;
 import org.formation.proxibanque.entity.CompteCourant;
 import org.formation.proxibanque.entity.Conseiller;
+import org.formation.proxibanque.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,7 +32,13 @@ import org.springframework.stereotype.Service;
 public class GerantService implements IGerantService {
 
 	@Autowired
+    private PasswordEncoder passwordEncoder;
+	
+	@Autowired
 	private IDaoConseiller daoConseiller;
+	
+	@Autowired
+	private IDaoEmployee daoEmployee;
 
 	public GerantService() {
 		super();
@@ -43,6 +51,10 @@ public class GerantService implements IGerantService {
 
 	@Override
 	public void ajouterConseiller(Conseiller conseiller) throws DaoException {
+		
+		conseiller.setPassword(passwordEncoder.encode(conseiller.getPassword()));
+		
+		
 		daoConseiller.save(conseiller);
 
 		// Strategy local de generer reference conseiller automatique
@@ -63,9 +75,9 @@ public class GerantService implements IGerantService {
 	}
 
 	@Override
-	public List<Conseiller> listerTousClientsDuGerant(Long idGerant) throws DaoException {
-//		return daoConseiller.findAllConseillerByGerantId(idGerant);
-		return new ArrayList<>();
+	public List<Conseiller> listerTousClientsDuGerant(Long idGerent) throws DaoException {
+		
+		return daoConseiller.findByGerantId(idGerent);      
 	}
 
 	/**
