@@ -6,9 +6,9 @@ import org.formation.proxibanque.entity.Conseiller;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * Gestion des Conseillers
+ * Interface ext. JapRepository de DAO Conseiller
  * 
- * @author JW
+ * @author JW NC
  *
  */
 public interface IDaoConseiller extends JpaRepository<Conseiller, Long> {

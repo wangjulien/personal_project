@@ -5,7 +5,6 @@ import java.util.List;
 import org.formation.proxibanque.config.Config;
 import org.formation.proxibanque.dao.DaoException;
 import org.formation.proxibanque.dao.IDaoConseiller;
-import org.formation.proxibanque.dao.IDaoEmployee;
 import org.formation.proxibanque.entity.Agence;
 import org.formation.proxibanque.entity.Client;
 import org.formation.proxibanque.entity.ClientEntreprise;
@@ -23,7 +22,7 @@ import org.springframework.stereotype.Service;
  * mDaoAgence est utilise ici pour Chercher ou Modifier l'information dans
  * persistance *
  * 
- * @author JW
+ * @author JW NC
  *
  */
 

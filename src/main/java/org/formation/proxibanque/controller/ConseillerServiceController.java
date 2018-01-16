@@ -2,8 +2,15 @@ package org.formation.proxibanque.controller;
 
 import org.formation.proxibanque.service.IConseillerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
+/**
+ * 
+ * Controleur des gestion Clients
+ * RESTE A FAIRE
+ * 
+ * @author JW 
+ *
+ */
 //@Controller
 public class ConseillerServiceController {
 	

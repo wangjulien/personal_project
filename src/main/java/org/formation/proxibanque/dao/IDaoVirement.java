@@ -1,14 +1,12 @@
 package org.formation.proxibanque.dao;
 
-import java.util.List;
-
 import org.formation.proxibanque.entity.Virement;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Interface de persister virement
  * 
- * @author JW
+ * @author JW NC
  *
  */
 public interface IDaoVirement extends JpaRepository<Virement, Long> {

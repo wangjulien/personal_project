@@ -13,6 +13,16 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * Controleur des acces post-login (login (POST) est gere par Spring Security)
+ *  - /login  		view login
+ *  - /conseiller  	vheiculer le conseiller logge
+ *  - /gerant		vheiculer le gerant logge
+ *  - /logout		view logout
+ *  
+ * @author JW NC
+ *
+ */
 @Controller
 public class LoginServiceController {
 

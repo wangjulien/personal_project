@@ -2,13 +2,12 @@ package org.formation.proxibanque.dao;
 
 import org.formation.proxibanque.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 /**
- * Gestion des Conseillers
+ * Interface ext. JapRepository de DAO Employee (Abstract parent de Conseiller et Gerant)
  * 
- * @author JW
+ * @author JW NC
  *
  */
 public interface IDaoEmployee extends JpaRepository<Employee, Long> {

@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Entity Client abstract (strategy TABLE PER CLASS)
+ * Entity Client abstract (strategy JOINED TABLE)
  * 
  * @author JW
  *

@@ -9,6 +9,15 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+/**
+ * 
+ * Classe d'initialisation Spring MVC (fonction identique que web.xml) : 
+ *  - Enregister ContextLoaderListener
+ *  - Enregister DispatcherServlet
+ * 
+ * @author adminl
+ *
+ */
 public class WebAppInitializer implements WebApplicationInitializer {
 
 	@Override

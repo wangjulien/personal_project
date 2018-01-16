@@ -12,6 +12,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+/**
+ * Test unitaire pour test la fonction logger par login 
+ * 
+ * @author adminl
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = WebConfig.class)
 @WebAppConfiguration
@@ -29,10 +35,10 @@ public class TestLoginService {
 		assertNotNull(daoEmployee);
 		assertNotNull(daoConseiller);
 		
-//		Adresse add = new Adresse("Paris", 75001, "IdF", "0123456789");
-//		Conseiller leConseiller = new Conseiller("JUnit", "test", "J001", add);
-//		leConseiller.setLogin("Test");
-//		daoConseiller.save(leConseiller);
+		Adresse add = new Adresse("Paris", 75001, "IdF", "0123456789");
+		Conseiller leConseiller = new Conseiller("JUnit", "test", "J001", add);
+		leConseiller.setLogin("Test");
+		daoConseiller.save(leConseiller);
 		
 		assertNotNull(daoEmployee.findEmployeeByLogin("Test"));
 	}

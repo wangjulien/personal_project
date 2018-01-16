@@ -19,6 +19,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+/**
+ * Controleur des services concernant gerant :
+ *  - Lister les conseillers de l'agence
+ *  - Modifier un conseiller selectionne
+ *  - Ajouter un nouveau conseiller (A FAIRE)
+ * 
+ * @author JW NC
+ *
+ */
 @Controller
 @SessionAttributes("conseiller")
 public class GerantServiceController {

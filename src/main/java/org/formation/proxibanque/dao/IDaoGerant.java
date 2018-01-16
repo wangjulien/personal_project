@@ -9,9 +9,9 @@ import org.formation.proxibanque.entity.Gerant;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * Interface de gestion d'une Agence
+ * Interface ext. JapRepository de DAO  Gerant
  *
- * @author JW 
+ * @author JW NC
  */
 
 public interface IDaoGerant extends JpaRepository<Gerant, Long>  {

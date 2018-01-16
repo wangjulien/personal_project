@@ -13,6 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Controleur de gestion de client:
+ * 	- lister tous les clients
+ * 	- modification des champs d'un client selectionne
+ * 
+ * @author JW NC
+ *
+ */
 @Controller
 public class ClientController {
 	

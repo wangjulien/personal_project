@@ -1,5 +1,11 @@
 package org.formation.proxibanque.controller;
 
+/**
+ * BeanClient issue de Entity Client
+ * 
+ * @author NC
+ *
+ */
 public class BeanClient {
 	private int id;
 	private String nom;

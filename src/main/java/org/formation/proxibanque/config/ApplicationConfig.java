@@ -21,6 +21,14 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+/**
+ * Classe de configuration Spring App :
+ *  - MySql data source
+ *  - JPA et Hibernate
+ * 
+ * @author JW NC
+ *
+ */
 @Configuration
 @PropertySource("classpath:application.properties")
 @ComponentScan(basePackages= {"org.formation.proxibanque"})
@@ -110,7 +118,7 @@ public class ApplicationConfig {
 		
 		//Custom properties can be set using Properties
 		Properties jpaProperties = new Properties();
-		jpaProperties.setProperty("hibernate.hbm2ddl.auto", "update");
+		jpaProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 		
 		entityManagerFactory.setJpaProperties(jpaProperties);
 		

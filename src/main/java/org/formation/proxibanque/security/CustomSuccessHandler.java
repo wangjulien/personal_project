@@ -17,6 +17,12 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
+/**
+ * Classe de Spring Security : vehiculer les differents views selon le ROLE de l'utilisateur logge
+ * 
+ * @author JW NC
+ *
+ */
 @Component
 public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 	

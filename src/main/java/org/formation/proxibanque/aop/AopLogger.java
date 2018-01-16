@@ -5,16 +5,23 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 
+/**
+ * AOP logger, l'object est de logger tous les exceptions DaoException thrown
+ * RESTE A FAIRE
+ * 
+ * @author JW NC
+ *
+ */
 @Aspect
 public class AopLogger {
 	
-	@Pointcut("execution(* *.save(..))")
+	@Pointcut("execution(* *.*(..))")
 	public void executeMethod() {
 	}
 
 	
 	// @AfterThrowing("executeMethod()")
-	// public void sucks( ) {
+	// public void logDaoException( ) {
 	// log
 	// }
 

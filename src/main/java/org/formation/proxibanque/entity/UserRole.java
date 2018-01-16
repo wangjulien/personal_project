@@ -10,6 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+/**
+ * Entity de Role, utilse pour Employee(Gerant ou Conseiller) pour avoir different previliges
+ * 
+ * @author JW
+ *
+ */
 @Entity
 @Table(name = "userrole")
 public class UserRole {

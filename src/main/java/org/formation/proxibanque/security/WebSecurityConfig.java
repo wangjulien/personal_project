@@ -12,6 +12,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * Classe de configuration Spring Security 
+ *  - filtrage des acces selon ROLE
+ *  - configurer AuthenticationManagerBuilder pour verifier password utilisateur logge
+ * 
+ * @author JW NC
+ *
+ */
 @Configuration
 @EnableWebSecurity
 @ComponentScan(basePackageClasses = CustomUserDetailsService.class)

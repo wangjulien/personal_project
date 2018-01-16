@@ -3,7 +3,7 @@ package org.formation.proxibanque.dao;
 /**
  * Exception d'acces aux donnees
  * 
- * @author JW
+ * @author JW NC
  */
 public class DaoException extends Exception {
 

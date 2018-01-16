@@ -3,7 +3,6 @@ package org.formation.proxibanque.security;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.formation.proxibanque.entity.Employee;
@@ -12,6 +11,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+
+/**
+ * Classe implement interface UserDetail (Spring Security) et encapsule l'utilisateur logge (Employee)
+ * pour acceder les attributs ID, NOM, PRENOM etc
+ * 
+ * @author JW NC
+ *
+ */
 public class CustomUserDetails implements UserDetails {
 
 	private static final long serialVersionUID = 1L;

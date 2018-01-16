@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
- * Entity abstract Employee (strategy TABLE PER CLASS)
+ * Entity abstract Employee (strategy JOINED TABLE)
  * 
  * @author JW
  *

@@ -6,9 +6,9 @@ import org.formation.proxibanque.entity.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * Gestion des Clients
+ * Interface ext. JapRepository de DAO Clients
  * 
- * @author JW
+ * @author JW NC
  *
  */
 public interface IDaoClient extends JpaRepository<Client, Long> {
@@ -17,7 +17,7 @@ public interface IDaoClient extends JpaRepository<Client, Long> {
 	 * Renvoie la liste des clients du conseiller dont l'identifiant est fourni en
 	 * parametre
 	 * 
-	 * @param idConseiller
+	 * @param id
 	 * @return List
 	 */
 	public List<Client> findByConseillerId(Long id);

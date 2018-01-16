@@ -23,7 +23,7 @@ import org.springframework.stereotype.Service;
  * 
  * DaoClient est utilise ici pour Chercher ou Modifier l'information dans persistance
  *  * 
- * @author JW
+ * @author JW NC
  *
  */
 

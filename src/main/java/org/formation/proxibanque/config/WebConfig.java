@@ -11,9 +11,11 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+
 /**
+ * Classe de configuration Spring WEB mapping (idem: dispatcher-servlet.xml)
  * 
- * Configuration class dispatcher-servlet.xml
+ * @author JW NC
  *
  */
 @Configuration
@@ -34,7 +36,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		// index mapping
-		// / - > index.jsp
+		// / - > login.jsp
 		registry.addViewController("/").setViewName("login");
 
 	}
