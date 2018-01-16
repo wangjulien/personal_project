@@ -6,18 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Displayclient</title>
-<link
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.css"
-	rel="stylesheet" />
-<link
-	href="${pageContext.request.contextPath}/resources/css/starter-template.css"
-	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
 <script
-	src="${pageContext.request.contextPath}/resources/js/jquery-2.1.4.min.js"
-	type="text/javascript"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
-	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 	Display Clients
@@ -25,20 +19,7 @@
 		<table class="table table-striped">
 
 			<c:forEach var="client" items="${cleclients}">
-				<tr scope="row">
-					<td scope="col">login</td>
-					<td><c:out value="${client.login}" /></td>
-
-				</tr>
-				<tr scope="row">
-					<td scope="col">Id</td>
-					<td><c:out value="${client.id}" /></td>
-
-				</tr>
-				<tr scope="row">
-					<td>pass</td>
-					<td><c:out value="${client.motDePasse}" /></td>
-				</tr>
+				
 				<tr scope="row">
 					<td>name</td>
 					<td><div>
@@ -49,6 +30,22 @@
 					<td>firstname</td>
 					<td><c:out value="${client.prenom}" /></td>
 				</tr>
+				
+				<tr scope="row">
+					<td scope="col">Rue</td>
+					<td><c:out value="${client.adresse.rue}" /></td>
+
+				</tr>
+				<tr scope="row">
+					<td scope="col">Code Postal</td>
+					<td><c:out value="${client.adresse.codePostal}" /></td>
+
+				</tr>
+				<tr scope="row">
+					<td>Ville</td>
+					<td><c:out value="${client.adresse.ville}" /></td>
+				</tr>
+				
 				<tr scope="row">
 					<td></td>
 					<td><c:out value="   " /></td>
@@ -56,7 +53,7 @@
 			</c:forEach>
 		</table>
 	</div>
-	<form action='index' method='GET'>
+	<form action="<c:url value='/editClients' />" method='GET'>
 		<input type='submit' value='retour'>
 	</form>
 </body>

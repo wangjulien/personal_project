@@ -28,14 +28,17 @@
 			<ul class="navbar-nav">
 				<c:url var="loginUrl" value="/login" />
 				<c:url var="logoutUrl" value="/logout" />
+				<c:url var="gestionClientUrl" value="/conseillerGestionClient" />
 				<li class="nav-item"><a class="nav-link" href="${loginUrl}">Login</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="${logoutUrl}">Logout</a>
 				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="${gestionClientUrl}">Gestion de client</a></li>
 			</ul>
 		</nav>
 
-		<div>
+		<div id="mainWrapper">
 			<h3>Bienvenu ${user.nom} ${user.prenom}</h3>
 			<img class="img-thumbnail"
 				src="<c:url value='/resources/img/weclome.gif' />" />

@@ -20,13 +20,13 @@ public class ClientController {
 	private IConseillerService serviceC;
 
 
-	@RequestMapping(value = "/displayClients", method = RequestMethod.GET) // MAPPING servlet qui apparait page adresse
+	@RequestMapping(value = "/conseillerGestionClient", method = RequestMethod.GET) // MAPPING servlet qui apparait page adresse
 																			// ,non codée
 	public ModelAndView ListClients() throws DaoException {
 
 		// List<Client> l=crudClientDAO.findAll();
 		List<Client> l = serviceC.listerTousClients();
-		return new ModelAndView("displayClients", "cleclients", l); // à l'appel du controller ... code retour
+		return new ModelAndView("/conseiller/displayClients", "cleclients", l); // à l'appel du controller ... code retour
 																	// ServletDispatcher K (EL / V
 																	// essaie K.jsp
 	}
@@ -35,7 +35,7 @@ public class ClientController {
 	public ModelAndView editClients() throws DaoException {
 		// List<Client> l=crudClientDAO.findAll();
 		List<Client> l = serviceC.listerTousClients();
-		return new ModelAndView("editClients", "cleclients", l);
+		return new ModelAndView("/conseiller/editClients", "cleclients", l);
 
 	}
 
@@ -44,7 +44,7 @@ public class ClientController {
 		List<Client> l = serviceC.listerTousClients();
 		Client cl = l.get(value - 1);
 		System.out.println("client à modifier id = " + value + "  " + cl);
-		return new ModelAndView("editLoginClient", "client", cl);
+		return new ModelAndView("/conseiller/editLoginClient", "client", cl);
 	}
 
 	@RequestMapping(value = "/editedLogin", method = RequestMethod.POST) // retour page index
@@ -64,16 +64,8 @@ public class ClientController {
 		List<Client> l = serviceC.listerTousClients();
 		// Client cl=l.get(id-1);cl.setLogin(logStr);
 		// serviceC.updateClient(cl);
-		System.out.println("client login modifié = " + logStr + "  ");
-		return new ModelAndView("editedLogin", "beanid", bean);
-	}
-
-	@RequestMapping(value = "/index", method = RequestMethod.GET) // retour page index
-	public ModelAndView index() throws DaoException {
-		// List<Client> l=crudClientDAO.findAll();
-		List<Client> l = serviceC.listerTousClients();
-		return new ModelAndView("index", "cleclients", l);
-
+		System.out.println("client login modifie = " + logStr + "  ");
+		return new ModelAndView("/conseiller/editedLogin", "beanid", bean);
 	}
 
 }

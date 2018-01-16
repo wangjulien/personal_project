@@ -6,17 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Edit Client</title>
-<link
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.css"
-	rel="stylesheet" />
-<link
-	href="${pageContext.request.contextPath}/resources/css/starter-template.css"
-	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
 <script
-	src="${pageContext.request.contextPath}/resources/js/jquery-2.1.4.min.js"
-	type="text/javascript"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
-	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -44,28 +39,7 @@ Edition Client Id : ${client.id}
 					value='soumettre'>
 			</form>
 		</tr>
-		<tr scope="row">
-			<td scope="col">login</td>
-			<td></td>
-			<form action='editedLogin' method='POST'>
-				<td><input type=text size=60 name='logedit'
-					value="${client.login}"></td>
-				<td><input type=hidden size=60 name='idmod'
-					value="${client.id}"></td> <input type='submit'
-					value='soumettre'>
-			</form>
-		</tr>
-				<tr scope="row">
-			<td scope="col">motDePasse</td>
-			<td></td>
-			<form action='editedLogin' method='POST'>
-				<td><input type=text size=60 name='logedit'
-					value="${client.motDePasse}"></td>
-				<td><input type=hidden size=60 name='idmod'
-					value="${client.id}"></td> <input type='submit'
-					value='soumettre'>
-			</form>
-		</tr>
+
 <tr scope="row">
 			<td scope="col">Adresse [Rue]</td>
 			<td></td>
@@ -79,7 +53,7 @@ Edition Client Id : ${client.id}
 		</tr>
 		</table>
 	</div>
-	<form action='index' method='GET'>
+	<form action="<c:url value='/editClients' />" method='GET'>
 		<input type='submit' value='retour index'>
 	</form>
 </body>
