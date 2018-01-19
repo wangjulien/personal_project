@@ -22,7 +22,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 	private static final Logger LOGGER =  LoggerFactory.getLogger(CustomUserDetailsService.class);
 	
-//	http://www.yiibai.com/spring-security/spring-mvc-4-and-spring-security-4-integration-example.html
 	
 	@Autowired
     private IDaoEmployee daoEmployee;

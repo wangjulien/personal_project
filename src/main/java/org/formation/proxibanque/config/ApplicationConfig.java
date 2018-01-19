@@ -118,7 +118,7 @@ public class ApplicationConfig {
 		
 		//Custom properties can be set using Properties
 		Properties jpaProperties = new Properties();
-		jpaProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+		jpaProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 		
 		entityManagerFactory.setJpaProperties(jpaProperties);
 		
