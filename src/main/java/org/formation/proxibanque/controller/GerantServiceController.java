@@ -25,7 +25,7 @@ import org.springframework.web.bind.support.SessionStatus;
  *  - Modifier un conseiller selectionne
  *  - Ajouter un nouveau conseiller (A FAIRE)
  * 
- * @author JW NC
+ * @author JW
  *
  */
 @Controller
@@ -44,7 +44,7 @@ public class GerantServiceController {
 			if (null != user) {
 
 				List<Conseiller> conseillerList = 
-						gerantService.listerTousClientsDuGerant(user.getId());
+						gerantService.listerConseillersDuGerant(user.getId());
 				model.addAttribute("conseillerList", conseillerList);
 
 			} else {

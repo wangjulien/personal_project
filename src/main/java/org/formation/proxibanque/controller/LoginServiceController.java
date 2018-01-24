@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *  - /gerant		vheiculer le gerant logge
  *  - /logout		view logout
  *  
- * @author JW NC
+ * @author JW
  *
  */
 @Controller

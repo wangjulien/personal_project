@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 /**
  * Interface ext. JapRepository de DAO Employee (Abstract parent de Conseiller et Gerant)
  * 
- * @author JW NC
+ * @author JW
  *
  */
 public interface IDaoEmployee extends JpaRepository<Employee, Long> {

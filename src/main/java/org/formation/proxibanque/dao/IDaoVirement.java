@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * Interface de persister virement
  * 
- * @author JW NC
+ * @author JW
  *
  */
 public interface IDaoVirement extends JpaRepository<Virement, Long> {

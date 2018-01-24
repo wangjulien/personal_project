@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 /**
  * Classe de Spring Security : vehiculer les differents views selon le ROLE de l'utilisateur logge
  * 
- * @author JW NC
+ * @author JW
  *
  */
 @Component

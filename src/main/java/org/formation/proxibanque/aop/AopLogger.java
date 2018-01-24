@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.Pointcut;
  * AOP logger, l'object est de logger tous les exceptions DaoException thrown
  * RESTE A FAIRE
  * 
- * @author JW NC
+ * @author JW
  *
  */
 @Aspect

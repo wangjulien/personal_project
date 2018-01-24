@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
  * 	- lister tous les clients
  * 	- modification des champs d'un client selectionne
  * 
- * @author JW NC
+ * @author JW
  *
  */
 @Controller

@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * Interface ext. JapRepository de DAO Conseiller
  * 
- * @author JW NC
+ * @author JW
  *
  */
 public interface IDaoConseiller extends JpaRepository<Conseiller, Long> {

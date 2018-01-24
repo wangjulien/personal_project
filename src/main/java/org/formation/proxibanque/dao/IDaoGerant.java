@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * Interface ext. JapRepository de DAO  Gerant
  *
- * @author JW NC
+ * @author JW
  */
 
 public interface IDaoGerant extends JpaRepository<Gerant, Long>  {

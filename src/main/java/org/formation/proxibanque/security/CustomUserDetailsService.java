@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Classe implements UserDetailsService (Spring Security) pour offrir se logger a partir user dans DB
  * 
- * @author JW NC
+ * @author JW
  *
  */
 @Component

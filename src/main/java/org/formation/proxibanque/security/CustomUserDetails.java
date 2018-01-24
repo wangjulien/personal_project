@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  * Classe implement interface UserDetail (Spring Security) et encapsule l'utilisateur logge (Employee)
  * pour acceder les attributs ID, NOM, PRENOM etc
  * 
- * @author JW NC
+ * @author JW
  *
  */
 public class CustomUserDetails implements UserDetails {

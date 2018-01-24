@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
  * mDaoAgence est utilise ici pour Chercher ou Modifier l'information dans
  * persistance *
  * 
- * @author JW NC
+ * @author JW
  *
  */
 
@@ -70,7 +70,7 @@ public class GerantService implements IGerantService {
 	}
 
 	@Override
-	public List<Conseiller> listerTousClientsDuGerant(Long idGerent) throws DaoException {
+	public List<Conseiller> listerConseillersDuGerant(Long idGerent) throws DaoException {
 		
 		return daoConseiller.findByGerantId(idGerent);      
 	}

@@ -4,7 +4,7 @@ package org.formation.proxibanque.config;
  * Classs de configuration. a charger depuis un fichier . properties
  *  - Pour generer automatiquement prefix
  * 
- * @author JW NC
+ * @author JW
  *
  */
 public class Config {

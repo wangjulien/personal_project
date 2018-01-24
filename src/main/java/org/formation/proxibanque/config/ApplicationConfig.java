@@ -26,7 +26,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  *  - MySql data source
  *  - JPA et Hibernate
  * 
- * @author JW NC
+ * @author JW
  *
  */
 @Configuration

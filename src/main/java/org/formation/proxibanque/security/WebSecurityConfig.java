@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  *  - filtrage des acces selon ROLE
  *  - configurer AuthenticationManagerBuilder pour verifier password utilisateur logge
  * 
- * @author JW NC
+ * @author JW
  *
  */
 @Configuration
@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/", "/gerant*").access("hasRole('ROLE_GERANT')")
         .and()
         .formLogin()
-        	.loginPage("/login").loginProcessingUrl("/login")
+        	.loginPage("/login").permitAll().loginProcessingUrl("/login")
         	.successHandler(customSuccessHandler)
         	.usernameParameter("login").passwordParameter("password")
         	.failureUrl("/login")

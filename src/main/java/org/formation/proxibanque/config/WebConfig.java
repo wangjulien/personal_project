@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 /**
  * Classe de configuration Spring WEB mapping (idem: dispatcher-servlet.xml)
  * 
- * @author JW NC
+ * @author JW
  *
  */
 @Configuration
