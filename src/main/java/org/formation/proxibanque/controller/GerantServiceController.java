@@ -2,6 +2,7 @@ package org.formation.proxibanque.controller;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.formation.proxibanque.dao.DaoException;
 import org.formation.proxibanque.entity.Conseiller;
@@ -64,8 +65,8 @@ public class GerantServiceController {
 	public String editConseillers(@RequestParam("id") Long id, Model model) {
 		
 		try {
-			Conseiller conseiller = gerantService.chercherConseiller(id);
-			model.addAttribute("conseiller", conseiller);
+			Optional<Conseiller> conseiller = gerantService.chercherConseiller(id);
+			model.addAttribute("conseiller", conseiller.get());
 			
 			return "/gerant/edit_conseiller";
 		} catch (DaoException e) {

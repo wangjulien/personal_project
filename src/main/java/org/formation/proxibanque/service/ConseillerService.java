@@ -2,6 +2,7 @@ package org.formation.proxibanque.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.formation.proxibanque.config.Config;
 import org.formation.proxibanque.dao.DaoException;
@@ -38,8 +39,8 @@ public class ConseillerService implements IConseillerService {
 	}
 	
 	@Override
-	public Client chercherClient(Long idClient) throws DaoException {
-		return daoClient.findOne(idClient);		
+	public Optional<Client> chercherClient(Long idClient) throws DaoException {
+		return daoClient.findById(idClient);		
 	}
 
 	/**

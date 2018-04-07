@@ -1,6 +1,7 @@
 package org.formation.proxibanque.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.formation.proxibanque.dao.DaoException;
 import org.formation.proxibanque.entity.Client;
@@ -9,7 +10,7 @@ import org.formation.proxibanque.entity.ClientParticulier;
 
 public interface IConseillerService {
 	
-	public Client chercherClient(Long idClient) throws DaoException;
+	public Optional<Client> chercherClient(Long idClient) throws DaoException;
 	
 	public void ajouterClient(Client client) throws DaoException;
 	
