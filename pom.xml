@@ -14,6 +14,7 @@
 		<springsecurity.version>4.2.3.RELEASE</springsecurity.version>
 		<spring.jpa.data.version>2.0.5.RELEASE</spring.jpa.data.version>
 		<hibernate.version>5.2.15.Final</hibernate.version>
+		<hsqldb.version>2.4.1</hsqldb.version>
 		
 		<slf4j.version>1.7.5</slf4j.version>
 		<logback.version>1.0.13</logback.version>
@@ -127,15 +128,15 @@
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
-			<version>2.3.2</version>
+			<version>${hsqldb.version}</version>
 		</dependency>
 
 		<!-- MySQL Database Driver -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.10</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>mysql</groupId> -->
+<!-- 			<artifactId>mysql-connector-java</artifactId> -->
+<!-- 			<version>5.1.10</version> -->
+<!-- 		</dependency> -->
 
 		<!-- Test Artifacts -->
 		<dependency>
